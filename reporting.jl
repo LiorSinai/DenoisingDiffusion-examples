@@ -8,7 +8,7 @@ Rows are ground truth labels, columns are predicted labels.
 `y` and `ŷ` are either both vectors or both matrices.
 """
 function confusion_matrix(ŷ::AbstractVector, y::AbstractVector, labels)
-    nlabels = length(labels) 
+    nlabels = length(labels)
     cm = zeros(Int, nlabels, nlabels)
     for (i, groundtruth) in enumerate(labels)
         idxs = (y .== groundtruth)
@@ -35,7 +35,7 @@ end
 function f1_score(cm::AbstractMatrix; target=1)
     r = recall(cm, target=target)
     p = precision(cm, target=target)
-    (p==0 || r==0) ? 0 : 2 * p * r / (r + p) # == 2/(1/r + 1/p)
+    (p == 0 || r == 0) ? 0 : 2 * p * r / (r + p) # == 2/(1/r + 1/p)
 end
 
 function classification_report(cm::AbstractMatrix, labels=1:size(cm, 1))
@@ -56,7 +56,7 @@ function classification_report(cm::AbstractMatrix, labels=1:size(cm, 1))
     @printf("%12s  precision  recall  f1-score  support\n", "")
     for i in 1:size(cm, 1)
         rt = report[i]
-        @printf("%12s  %9.2f  %6.2f  %8.2f  %7d\n", 
+        @printf("%12s  %9.2f  %6.2f  %8.2f  %7d\n",
             string(labels[i]), rt["precision"], rt["recall"], rt["f1"], rt["support"]
         )
     end
@@ -66,6 +66,6 @@ function classification_report(cm::AbstractMatrix, labels=1:size(cm, 1))
     weighted["recall"] /= weighted["support"]
     weighted["f1"] /= weighted["support"]
     @printf("%12s  %9.2f  %6.2f  %8.2f  %7d", 
-            "weighted avg", weighted["precision"], weighted["recall"], weighted["f1"], weighted["support"]
-        )
+        "weighted avg", weighted["precision"], weighted["recall"], weighted["f1"], weighted["support"]
+    )
 end
