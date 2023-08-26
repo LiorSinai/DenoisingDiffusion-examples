@@ -1,4 +1,4 @@
-# DenoisingDiffusion-examples.jl
+# DenoisingDiffusion-examples
 
 Examples using the package at [github.com/LiorSinai/DenoisingDiffusion.jl](https://github.com/LiorSinai/DenoisingDiffusion.jl).
 
