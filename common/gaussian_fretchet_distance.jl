@@ -1,3 +1,5 @@
+using LinearAlgebra
+
 """
     gaussian_frechet_distance(μ1, Σ1, μ2, Σ2)
 

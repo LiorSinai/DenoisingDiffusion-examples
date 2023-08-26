@@ -1,5 +1,4 @@
 using StatsBase
-using LinearAlgebra
 using Images
 
 ## model sizes 
