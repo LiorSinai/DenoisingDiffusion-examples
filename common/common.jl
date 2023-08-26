@@ -1,0 +1,6 @@
+include("argmin_func.jl")
+include("datasets.jl")
+include("gaussian_fretchet_distance.jl")
+include("load_images.jl")
+include("reporting.jl")
+include("utilities.jl")
